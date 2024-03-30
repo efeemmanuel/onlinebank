@@ -1,0 +1,444 @@
+
+{% extends 'base2.html' %}
+{% load static %}
+{% block main %}
+    <body class="nk-body npc-crypto bg-white has-sidebar dark-mode ">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <!-- sidebar @s -->
+              {% include 'side.html' %}
+                <!-- sidebar @e -->
+                <!-- wrap @s -->
+                <div class="nk-wrap ">
+                    <!-- main header @s -->
+                    {% include 'main.html' %}
+                   
+                    <!-- main header @e -->    <div class="nk-content">
+           <div class="container-xl wide-lg">
+            <div class="nk-content-body">
+            <div class="nk-block-head">
+             <div class="nk-block-head-sub">
+             </div>
+              
+                                </div><!-- .nk-block-head -->
+                            </div>
+                        </div>
+    
+         <div class="card card-bordered">
+           
+           <div class="card-inner">
+         <div class="tab-content">
+      
+          <div class="tab-pane active" id="tabItem6">
+           <p>
+            <b>Recipient's and banking information</b> 
+    
+            <form method="POST" action="/local_transfer">
+                {% csrf_token %}
+                          
+						  
+						  
+						  {% if messages %}
+									<!-- <ul> -->
+										{% for message in messages %}
+										<div class="alert alert-warning alert-dismissible fade show" role="alert">
+									<strong>{{ message }}</strong>
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									</div>
+										  
+										{% endfor %}
+									<!-- </ul> -->
+									  {% endif %}
+						  
+						  
+            <div class="row">
+     
+            <div class="form-group col-md-4">
+            <div class="form-control-wrap">
+			<input type="tel" class="form-control" id="phone" name="account_number" placeholder="Account Number">              
+             </div>
+            </div>
+            
+            <hr style="background-color: black; height: 2px;">
+           <div class="form-group col-md-12">
+            <div class="form-control-wrap">
+			<input type="text" class="form-control form-control-outlined" id="iban" name="iban">
+           
+             <label class="form-label-outlined" for="outlined">IBAN</label>
+             <small>You will have to provide the IBAN for European countries, or the ABA for the United States.
+            </small>
+             </div>
+            </div>
+           <div class="form-group col-md-6">
+            <div class="form-control-wrap">
+            <input type="text" class="form-control form-control-outlined" id="swiftcode" name="swiftcode">
+             <label class="form-label-outlined" for="outlined">Swift Code</label>
+             </div>
+            </div>
+             <div class="form-group col-md-6">
+            <div class="form-control-wrap">
+                  <input type="text" class="form-control form-control-outlined" id="accountnumber" name="amount">
+             <label class="form-label-outlined" for="outlined" >Amount</label>    
+             </div>
+            </div>
+            <input type="hidden" name="email" value="{{user.email}}">
+           </div>
+            <div class="row">
+             <p id="detailB" class="col-lg-12"></p>
+            </div>
+        </p>
+            <p>
+           <div class="row">
+         <div class="addRecipientResult"></div>
+        <div class="form-group col-md-12">
+        <div class="form-control-wrap">
+        <button onclick="" type="submit" class="btn btn-primary btn-block addRecipient" id="btn2">continue</button>
+            </div>
+        </div>
+            </div>
+            </form>
+            <script type="text/javascript">
+                $(document).ready(function() {
+     $('.addRecipient').on('click', function() {
+     var $this = $(this);
+     var loadingText = '<i class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></i>&nbsp;Processing...';
+     if ($(this).html() !== loadingText) {
+     $this.data('original-text', $(this).html());
+     $this.html(loadingText);
+     }
+     setTimeout(function() {
+     $this.html($this.data('original-text'));
+     },3000);
+     });
+     })
+    
+    $(document).ready(function () {
+        $('.addRecipient').click(function (e) {
+             document.getElementById("btn2").disabled = true;
+          e.preventDefault();
+          var countryId = $('#countryId').val(); var stateId = $('#stateId').val();  var cityId = $('#cityId').val();  var phone = $('#phone').val(); var address = $('#address').val();
+          var zipcode = $('#zipcode').val(); var email = $('#email').val(); var fullname = $('#fullname').val(); var type = $('#type').val();
+          var iban = $('#iban').val(); var swiftcode = $('#swiftcode').val(); var accountnumber = $('#accountnumber').val(); var accountholder = $('#accountholder').val();
+          var accounttype = $('#accounttype').val(); var bankname = $('#bankname').val();
+          $.ajax
+            ({
+              type: "POST",
+              url: "../scripts/add-recipient",
+              data: {
+              "countryId": countryId, "stateId": stateId, "cityId": cityId, "address": address, "zipcode": zipcode,
+              "email": email, "fullname": fullname, "type": type, "phone": phone, "iban": iban, "swiftcode": swiftcode, "accountnumber": accountnumber,
+              "accountholder": accountholder, "accounttype": accounttype, "bankname": bankname
+            },
+              success: function (data) {
+                 document.getElementById("btn2").disabled = false;
+                $('.addRecipientResult').html(data);
+                $('#form')[0].reset();
+              }
+            });
+        });
+      });
+            </script>
+         </p>
+            </div>
+       
+              </div>
+            </div>
+         </div>
+       </div>
+        <script src="../js/jquery.min.js"></script>
+          <script src="https://www.jqueryscript.net/demo/jQuery-International-Telephone-Input-With-Flags-Dial-Codes/build/js/intlTelInput.js"></script>
+      <script>
+           $("#phone").intlTelInput({
+              
+    
+            });
+           </script>
+       <script>
+    function showHint(str) {
+      if (str.length == 0) { 
+        document.getElementById("detailB").innerHTML = "";
+        return;
+      }
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        document.getElementById("detailB").innerHTML =
+        this.responseText;
+      }
+      xhttp.open("GET", "../scripts/getbank.php?q="+str);
+      xhttp.send();   
+    }
+    </script>
+    <script type="text/javascript">
+        function ajaxCall() {
+        this.send = function(data, url, method, success, type) {
+            type = type||'json';
+            var successRes = function(data) {
+                success(data);
+            }
+    
+            var errorRes = function(e) {
+                console.log(e);
+            }
+            jQuery.ajax({
+                url: url,
+                type: method,
+                data: data,
+                success: successRes,
+                error: errorRes,
+                dataType: type,
+                timeout: 60000
+            });
+    
+        }
+    
+    }
+    
+        function locationInfo() {
+        var rootUrl = "https://geodata.solutions/api/api.php";
+        //now check for set values
+        var addParams = '';
+        if(jQuery("#gds_appid").length > 0) {
+            addParams += '&appid=' + jQuery("#gds_appid").val();
+        }
+        if(jQuery("#gds_hash").length > 0) {
+            addParams += '&hash=' + jQuery("#gds_hash").val();
+        }
+    
+        var call = new ajaxCall();
+    
+        this.confCity = function(id) {
+            var url = rootUrl+'?type=confCity&country='+ jQuery('#country option:selected').attr('country') +'&state=' + jQuery('#state option:selected').attr('state') + '&city=' + id;
+            var method = "post";
+            var data = {};
+            call.send(data, url, method, function(data) {
+            });
+        };
+    
+    
+        this.getCities = function(id) {
+            jQuery(".cities option:gt(0)").remove();
+            var stateClasses = jQuery('#city').attr('class');
+    
+            var cC = stateClasses.split(" ");
+            cC.shift();
+            var addClasses = '';
+            if(cC.length > 0)
+            {
+                acC = cC.join();
+                addClasses = '&addClasses=' + encodeURIComponent(acC);
+            }
+            var url = rootUrl+'?type=getCities&country='+ jQuery('#country option:selected').attr('country') +'&state=' + id + addParams + addClasses;
+            var method = "post";
+            var data = {};
+            jQuery('.cities').find("option:eq(0)").html("Please wait..");
+            call.send(data, url, method, function(data) {
+                jQuery('.cities').find("option:eq(0)").html("Select City");
+                if(data.tp == 1){
+                    var listlen = Object.keys(data['result']).length;
+    
+                    if(listlen > 0)
+                    {
+                        jQuery.each(data['result'], function(key, val) {
+    
+                            var option = jQuery('<option />');
+                            option.attr('value', val).text(val);
+                            jQuery('.cities').append(option);
+                        });
+                    }
+                    else
+                    {
+                        var usestate = jQuery('#state option:selected').val();
+                        var option = jQuery('<option />');
+                        option.attr('value', usestate).text(usestate);
+                        option.attr('selected', 'selected');
+                        jQuery('.cities').append(option);
+                    }
+    
+                    jQuery(".cities").prop("disabled",false);
+                }
+                else{
+                    alert(data.msg);
+                }
+            });
+        };
+    
+        this.getStates = function(id) {
+            jQuery(".states option:gt(0)").remove();
+            jQuery(".cities option:gt(0)").remove();
+            //get additional fields
+            var stateClasses = jQuery('#state').attr('class');
+    
+            var cC = stateClasses.split(" ");
+            cC.shift();
+            var addClasses = '';
+            if(cC.length > 0)
+            {
+                acC = cC.join();
+                addClasses = '&addClasses=' + encodeURIComponent(acC);
+            }
+            var url = rootUrl+'?type=getStates&country=' + id + addParams  + addClasses;
+            var method = "post";
+            var data = {};
+            jQuery('.states').find("option:eq(0)").html("Please wait..");
+            call.send(data, url, method, function(data) {
+                jQuery('.states').find("option:eq(0)").html("Select State");
+                if(data.tp == 1){
+                    jQuery.each(data['result'], function(key, val) {
+                        var option = jQuery('<option />');
+                        option.attr('value', val).text(val);
+                        option.attr('state', key);
+                        jQuery('.states').append(option);
+                    });
+                    jQuery(".states").prop("disabled",false);
+                }
+                else{
+                    alert(data.msg);
+                }
+            });
+        };
+    
+        this.getCountries = function() {
+            //get additional fields
+            var countryClasses = jQuery('#country').attr('class');
+    
+            var cC = countryClasses.split(" ");
+            cC.shift();
+            var addClasses = '';
+            if(cC.length > 0)
+            {
+                acC = cC.join();
+                addClasses = '&addClasses=' + encodeURIComponent(acC);
+            }
+    
+            var presel = false;
+            var iip = 'N';
+            jQuery.each(cC, function( index, value ) {
+                if (value.match("^presel-")) {
+                    presel = value.substring(7);
+    
+                }
+                if(value.match("^presel-byi"))
+                {
+                    var iip = 'Y';
+                }
+            });
+    
+    
+            var url = rootUrl+'?type=getCountries' + addParams + addClasses;
+            var method = "post";
+            var data = {};
+            jQuery('.countries').find("option:eq(0)").html("Please wait..");
+            call.send(data, url, method, function(data) {
+                jQuery('.countries').find("option:eq(0)").html("Select Country");
+    
+                if(data.tp == 1){
+                    if(presel == 'byip')
+                    {
+                        presel = data['presel'];
+                        console.log('2 presel is set as ' + presel);
+                    }
+    
+    
+                    if(jQuery.inArray("group-continents",cC) > -1)
+                    {
+                        var $select = jQuery('.countries');
+                        console.log(data['result']);
+                        jQuery.each(data['result'], function(i, optgroups) {
+                            var $optgroup = jQuery("<optgroup>", {label: i});
+                            if(optgroups.length > 0)
+                            {
+                                $optgroup.appendTo($select);
+                            }
+    
+                            jQuery.each(optgroups, function(groupName, options) {
+                                var coption = jQuery('<option />');
+                                coption.attr('value', options.name).text(options.name);
+                                coption.attr('country', options.id);
+                                if(presel) {
+                                    if (presel.toUpperCase() == options.id) {
+                                        coption.attr('selected', 'selected');
+                                    }
+                                }
+                                coption.appendTo($optgroup);
+                            });
+                        });
+                    }
+                    else
+                    {
+                        jQuery.each(data['result'], function(key, val) {
+                            var option = jQuery('<option />');
+                            option.attr('value', val).text(val);
+                            option.attr('country', key);
+                            if(presel)
+                            {
+                                if(presel.toUpperCase() ==  key)
+                                {
+                                    option.attr('selected', 'selected');
+                                }
+                            }
+                            jQuery('.countries').append(option);
+                        });
+                    }
+                    if(presel)
+                    {
+                        jQuery('.countries').trigger('change');
+                    }
+                    jQuery(".countries").prop("disabled",false);
+                }
+                else{
+                    alert(data.msg);
+                }
+            });
+        };
+    
+    }
+    
+    jQuery(function() {
+        var loc = new locationInfo();
+        loc.getCountries();
+        jQuery(".countries").on("change", function(ev) {
+            var country = jQuery("option:selected", this).attr('country');
+            if(country != ''){
+                loc.getStates(country);
+            }
+            else{
+                jQuery(".states option:gt(0)").remove();
+            }
+        });
+        jQuery(".states").on("change", function(ev) {
+            var state = jQuery("option:selected", this).attr('state');
+            if(state != ''){
+                loc.getCities(state);
+            }
+            else{
+                jQuery(".cities option:gt(0)").remove();
+            }
+        });
+    
+        jQuery(".cities").on("change", function(ev) {
+            var city = jQuery("option:selected", this).val();
+            if(city != ''){
+                loc.confCity(city);
+            }
+        });
+    });
+    </script>
+    
+    
+ 
+                    <!-- footer @e -->
+                </div>
+                <!-- wrap @e -->
+            </div>
+            <!-- main @e -->
+        </div>
+       
+       
+    </body>
+    
+
+  
+    {% endblock main %}

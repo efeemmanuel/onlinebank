@@ -1,0 +1,256 @@
+<!-- base file for index page, aboutus, card, contact, home, laon, login,, privacy-policy, product,signup, login, terms and condition
+ -->
+
+{% load static  %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>horizonheritage</title>
+
+    <link rel="shortcut icon" href="/static/assets/images/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/static/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/static/assets/css/plugin/nice-select.css">
+    <link rel="stylesheet" href="/static/assets/css/plugin/slick.css">
+    <link rel="stylesheet" href="/static/assets/css/arafat-font.css">
+    <link rel="stylesheet" href="/static/assets/css/plugin/animate.css">
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+    <link rel="stylesheet" href="/static/cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+  .cmn-btn{
+    margin-top: -6% !important;
+  }
+</style>
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+          <div class="container">
+            <div class="row d-flex header-area">
+              <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                  <img src="/static/logo.png" width="150px" class="logo" alt="logo">
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbar-content">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                  <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="/about">About</a>
+                    </li>
+                    <li class="nav-item dropdown main-navbar">
+                      <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside">Product</a>
+                      <ul class="dropdown-menu main-menu shadow">
+                        <li class="dropend sub-navbar">
+                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                              data-bs-auto-close="outside">Card</a>
+                            <ul class="dropdown-menu sub-menu shadow">
+                              <li><a class="nav-link" href="/card">Card</a></li>
+                             
+                            </ul>
+                        </li>
+                        <li class="dropend sub-navbar">
+                          <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside">Loan</a>
+                          <ul class="dropdown-menu sub-menu shadow">
+                            <li><a class="nav-link" href="/loan">Business Loans</a></li>
+                          </ul>
+                        </li>
+                       
+                      </ul>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+					
+					
+					{%if request.user.is_authenticated %}
+					<li class="nav-item">
+                      <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+					<div class="right-area header-action d-flex align-items-center">
+                    <a href="/dashboard" class="cmn-btn">Dashboard</a>
+                   </div>
+					{%else%}
+					<li class="nav-item">
+                      <a class="nav-link" href="/login">Login</a>
+                    </li>
+					
+					<div class="right-area header-action d-flex align-items-center">
+                    <a href="/signup" class="cmn-btn">Create an Account</a>
+                   </div>
+					{%endif%}
+					 
+					
+                  </ul>
+                  
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+	
+	                 
+	
+	
+	
+	
+    <!-- banner-section start -->
+
+
+
+    {% if messages %}
+
+    {% for message in messages %}
+    <div  style="color: #ff0303">
+        <strong>
+            {{ message }}
+        </strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    {% block content %}  {% endblock %}
+
+    {% load static  %}
+ <!-- Footer Area Start -->
+ <div class="footer-section">
+    <div class="container pt-120">
+        <div class="row cus-mar pt-120 pb-120 justify-content-between wow fadeInUp">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-6">
+                <div class="footer-box">
+                    <a href="" class="logo">
+                        <img src="/static/logo.png" alt="logo">
+                    </a>
+                    <p>A modern, technology-first bank built for you and your growing business.</p>
+                    <div class="social-link d-flex align-items-center">
+                        <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-6">
+                <div class="footer-box">
+                    <h5>Company</h5>
+                    <ul class="footer-link">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="#">Awards</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-6">
+                <div class="footer-box">
+                    <h5>Useful Links</h5>
+                    <ul class="footer-link">
+                        <li><a href="/loan">Home Loan</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/login">Login</a></li>
+
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-6">
+                <div class="footer-box">
+                    <h5>Support</h5>
+                    <ul class="footer-link">
+                        <li>mail@horizonheritageplc.com</span></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-8">
+                <div class="footer-box">
+                    <h5>Subscribe</h5>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Enter Your Email address">
+                            <button class="cmn-btn">Subscribe</button>
+                        </div>
+                    </form>
+                    <p>Get the latest updates via email. Any time you may unsubscribe</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="footer-bottom">
+                    <div class="left">
+                        <p> Copyright © <a href="">horizonheritage</a> 
+                            
+                        </p>
+                    </div>
+                    <div class="right">
+                        <a href="/private" class="cus-bor">Privacy </a>
+                        <a href="/private">Terms &amp; Condition </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="img-area">
+        <img src="/static/assets/images/footer-Illu-left.png" class="left" alt="Images">
+        <img src="/static/assets/images/footer-Illu-right.png" class="right" alt="Images">
+    </div>
+</div>
+<!-- Footer Area End -->
+
+<!--==================================================================-->
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.html"></script><script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/js/jquery-ui.js"></script>
+<script src="/static/assets/js/bootstrap.min.js"></script>
+<script src="/static/assets/js/fontawesome.js"></script>
+<script src="/static/assets/js/plugin/slick.js"></script>
+<script src="/static/assets/js/plugin/jquery.nice-select.min.js"></script>
+<script src="/static/assets/js/plugin/wow.min.js"></script>
+<script src="/static/assets/js/plugin/plugin.js"></script>
+<script src="/static/assets/js/main.js"></script>
+<script src="/static/cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        margin: 10,
+        loop: true,
+        autoplay:true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 1
+          },
+          1000: {
+            items: 1
+          }
+        }
+      });
+    });
+</script>

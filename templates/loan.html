@@ -1,0 +1,588 @@
+
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <!-- start preloader -->
+    <!--<div class="preloader" id="preloader"></div>-->
+    <!-- end preloader -->
+
+
+    <!-- banner-section start -->
+    <section class="banner-section inner-banner personal-loan">
+        <div class="overlay">
+            <div class="banner-content d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-lg-7 col-md-10">
+                            <div class="main-content">
+                                <h1>Personal Loan</h1>
+                                <div class="breadcrumb-area">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb d-flex align-items-center">
+                                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript:void(0)">Product</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript:void(0)">Loan</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Personal Loans</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner-section end -->
+
+    <!-- About Personal loan In start -->
+    <section class="features-section about-business-loan about-educations-loan">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="top-section">
+                            <div class="section-text">
+                                <h5 class="sub-title">Meet your financial needs</h5>
+                                <h2 class="title">Borrow better for the planned and unexpected</h2>
+                                <p>Flexible and dependable, personal loans can be used to cover almost any expense.Break big expenses into manageable payments</p>
+                                <ul class="list">
+                                    <li class="list-item d-flex align-items-center">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>100% Safe & Secure</span>
+                                    </li>
+                                    <li class="list-item d-flex align-items-center ">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>Instant Process</span>
+                                    </li>
+                                </ul>
+                            </div>
+							
+							{%if request.user.is_authenticated %}
+                            <div class="btn-area">
+                                <a href="/loans" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%else%}
+							<div class="btn-area">
+                                <a href="/signup" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%endif%}
+							
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-end">
+                        <div class="img-area">
+                            <img src="/static/assets/images/about-personal-loan-Illus.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Personal loan In end -->
+
+    <!-- Counter In start -->
+    <section class="counter-educations">
+        <div class="overlay">
+            <div class="container wow fadeInUp">
+                <div class="row d-flex align-items-end justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="img-area">
+                            <img src="/static/assets/images/counter-Illus.png" class="max-un" alt="image">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 pt-120 pb-120">
+                        <div class="section-text">
+                            <h2 class="title">We believe you are more than a number.</h2>
+                        </div>
+                        <div class="counter-area mb-60 d-flex align-items-center justify-content-between">
+                            <div class="single">
+                                <h3><span class="counter">100</span>M+</h3>
+                                <p>Loans Given</p>
+                            </div>
+                            <div class="single">
+                                <h3><span class="counter">15000</span>+</h3>
+                                <p>Customers Served</p>
+                            </div>
+                            <div class="single">
+                                <h3 class="counter">150</h3>
+                                <p>Countries</p>
+                            </div>
+                        </div>
+                        {%if request.user.is_authenticated %}
+                            <div class="btn-area">
+                                <a href="/loans" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%else%}
+							<div class="btn-area">
+                                <a href="/signup" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%endif%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter In end -->
+
+    <!-- Get Loan In start -->
+    <section class="account-feature get-loan home-loan">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">A Better Way to Get Loan</h5>
+                            <h2 class="title">How it works</h2>
+                            <p>It's easier than you think. Follow the following simple easy steps</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-lg-3">
+                        <div class="single-box">
+                            <div class="icon-box">
+                                <img src="/static/assets/images/icon/get-loan-1.png" alt="icon">
+                            </div>
+                            <h5>1. Fill the form</h5>
+                            <p>Fill basic information for us to get in touch with you.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="single-box">
+                            <div class="icon-box">
+                                <img src="/static/assets/images/icon/get-loan-2.png" alt="icon">
+                            </div>
+                            <h5>2. Get pre-qualified</h5>
+                            <p>Verify your ID and get on a quick video call with a loan specialist.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="single-box">
+                            <div class="icon-box">
+                                <img src="/static/assets/images/icon/get-loan-3.png" alt="icon">
+                            </div>
+                            <h5>3. Send documents</h5>
+                            <p>Upload your documents on the horizonheritage app and get approved in</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="single-box">
+                            <div class="icon-box">
+                                <img src="/static/assets/images/icon/how-works-4.png" alt="icon">
+                            </div>
+                            <h5>4. Get a Loan</h5>
+                            <p>Make smart spending decisions on the spot. Our budgeting too</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Get Loan In end -->
+
+    <!-- Personal loan In start -->
+    <section class="business-loan-section personal-loan">
+        <div class="overlay">
+            <div class="container wow fadeInUp">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-content">
+                            <div class="section-text">
+                                <h2 class="title">Put Your Plans into Action</h2>
+                                <p>Choose the Personal loan amount that you need ($1,000 to $30,000) and the payment period (6–18 months) that suits you best.</p>
+                            </div>
+                            <form action="#">
+                                <div class="form-group">
+                                    <div class="range-amount">
+                                        <h4 class="d-flex align-items-center justify-content-center">
+                                            <label>Personal Loan Amount : </label>
+                                            <input type="text" disabled id="personal-amount">
+                                        </h4>
+                                    </div>
+                                    <div id="personal-slide"></div>
+                                </div>
+                                <ul class="nav nav-tabs justify-content-between" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-btn active" id="months12-tab" data-bs-toggle="tab" data-bs-target="#months12" type="button"
+                                            role="tab" aria-controls="months12" aria-selected="true">12 Months
+                                            <span class="mdr">Av. APR is 7.99%</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-btn" id="months18-tab" data-bs-toggle="tab" data-bs-target="#months18" type="button"
+                                            role="tab" aria-controls="months18" aria-selected="false">18 Months
+                                            <span class="mdr">Av. APR is 7.99%</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-btn" id="months24-tab" data-bs-toggle="tab" data-bs-target="#months24" type="button"
+                                            role="tab" aria-controls="months24" aria-selected="false">24 Months
+                                            <span class="mdr">Av. APR is 7.99%</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-btn" id="months36-tab" data-bs-toggle="tab" data-bs-target="#months36" type="button"
+                                            role="tab" aria-controls="months36" aria-selected="false">36 Months
+                                            <span class="mdr">Av. APR is 7.99%</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div class="bottom-area pt-120 d-xl-flex align-items-center justify-content-between">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="months12" role="tabpanel" aria-labelledby="months12-tab">
+                                            <h5>Monthly Payment: <span>$608.89</span></h5>
+                                        </div>
+                                        <div class="tab-pane fade" id="months18" role="tabpanel" aria-labelledby="months18-tab">
+                                            <h5>Monthly Payment: <span>$1208.89</span></h5>
+                                        </div>
+                                        <div class="tab-pane fade" id="months24" role="tabpanel" aria-labelledby="months24-tab">
+                                            <h5>Monthly Payment: <span>$1808.89</span></h5>
+                                        </div>
+                                        <div class="tab-pane fade" id="months36" role="tabpanel" aria-labelledby="months36-tab">
+                                            <h5>Monthly Payment: <span>$2408.89</span></h5>
+                                        </div>
+                                    </div>
+                                    {%if request.user.is_authenticated %}
+                            <div class="btn-area">
+                                <a href="/loans" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%else%}
+							<div class="btn-area">
+                                <a href="/signup" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%endif%}
+                                </div>
+                            </form>
+                        </div>
+                        <ul class="list d-lg-flex justify-content-between">
+                            <li class="list-item d-flex align-items-center">
+                                <span class="check d-flex align-items-center justify-content-center">
+                                    <img src="/static/assets/images/icon/check.png" alt="icon">
+                                </span>
+                                <span>No SSN or credit history required</span>
+                            </li>
+                            <li class="list-item d-flex align-items-center ">
+                                <span class="check d-flex align-items-center justify-content-center">
+                                    <img src="/static/assets/images/icon/check.png" alt="icon">
+                                </span>
+                                <span>Checking for rate won't impact credit score</span>
+                            </li>
+                            <li class="list-item d-flex align-items-center ">
+                                <span class="check d-flex align-items-center justify-content-center">
+                                    <img src="/static/assets/images/icon/check.png" alt="icon">
+                                </span>
+                                <span>No prepayment fees</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Personal loan In end -->
+
+    <!-- Testimonials In start -->
+    <section class="testimonials-section personal-loan">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-header text-center">
+                            <h2 class="title">We’ve helped more than 15,000 customers</h2>
+                            <p>Our goal is to help you grow. 4.4 out of 5 based on 155 reviews</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="testimonials-slider-two">
+                            <div class="single-slide">
+                                <div class="single">
+                                    <div class="review-area">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star blank"></i>
+                                    </div>
+                                    <p class="xlr">Sed arcu tortor, feugiat sit amet accumsan ac, maximus quis quam.vitae Integer ultrices elit.</p>
+                                    <div class="profile-area d-flex align-items-center">
+                                        <div class="img-area">
+                                            <img src="/static/assets/images/testimonials-image-1.png" alt="image">
+                                        </div>
+                                        <h6>Ben Mason</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-slide">
+                                <div class="single">
+                                    <div class="review-area">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star blank"></i>
+                                    </div>
+                                    <p class="xlr">Sed arcu tortor, feugiat sit amet accumsan ac, maximus quis quam.vitae Integer ultrices elit.</p>
+                                    <div class="profile-area d-flex align-items-center">
+                                        <div class="img-area">
+                                            <img src="/static/assets/images/testimonials-image-2.png" alt="image">
+                                        </div>
+                                        <h6>Nancy Parks</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-slide">
+                                <div class="single">
+                                    <div class="review-area">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="xlr">Sed arcu tortor, feugiat sit amet accumsan ac, maximus quis quam.vitae Integer ultrices elit.</p>
+                                    <div class="profile-area d-flex align-items-center">
+                                        <div class="img-area">
+                                            <img src="/static/assets/images/testimonials-image-3.png" alt="image">
+                                        </div>
+                                        <h6>Leroy Pierce</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-slide">
+                                <div class="single">
+                                    <div class="review-area">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star blank"></i>
+                                    </div>
+                                    <p class="xlr">Sed arcu tortor, feugiat sit amet accumsan ac, maximus quis quam.vitae Integer ultrices elit.</p>
+                                    <div class="profile-area d-flex align-items-center">
+                                        <div class="img-area">
+                                            <img src="/static/assets/images/testimonials-image-2.png" alt="image">
+                                        </div>
+                                        <h6>Nancy Parks</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials In end -->
+
+    <!-- Credit History loan In start -->
+    <section class="features-section credit-history">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="img-area">
+                            <img src="/static/assets/images/credit-history-left.png" alt="image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="top-section">
+                            <div class="section-text">
+                                <h5 class="sub-title">don’t have an SSN yet there is no need to worry</h5>
+                                <h2 class="title">Be Eligible Without SSN or Credit History</h2>
+                                <p>We look at holistic profile of individuals, and do no rely only on traditional credit history. We look at all indications of financial responsibility.</p>
+                                <ul class="list">
+                                    <li class="list-item d-flex align-items-center">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>Current employment or employability</span>
+                                    </li>
+                                    <li class="list-item d-flex align-items-center ">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>Education</span>
+                                    </li>
+                                    <li class="list-item d-flex align-items-center ">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>Financial Behavior</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {%if request.user.is_authenticated %}
+                            <div class="btn-area">
+                                <a href="/loans" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%else%}
+							<div class="btn-area">
+                                <a href="/signup" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%endif%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Credit History In end -->
+
+    <!-- Pay early loan In start -->
+    <section class="features-section pay-early">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="top-section">
+                            <div class="section-text">
+                                <h5 class="sub-title">Feel free to pay as early as you want</h5>
+                                <h2 class="title">Pay early without Any Extra Cost</h2>
+                                <p>No prepayment penalty for early payment, pay as soon as you want.</p>
+                                <ul class="list">
+                                    <li class="list-item d-flex align-items-center">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>Fast and Easy</span>
+                                    </li>
+                                    <li class="list-item d-flex align-items-center ">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>Early Loan Repaymnet</span>
+                                    </li>
+                                    <li class="list-item d-flex align-items-center ">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>No Hidden Fees</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {%if request.user.is_authenticated %}
+                            <div class="btn-area">
+                                <a href="/loans" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%else%}
+							<div class="btn-area">
+                                <a href="/signup" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%endif%}
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="img-area">
+                            <img src="/static/assets/images/pay-early-right.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pay early In end -->
+
+    <!-- Get personal loan  In start -->
+    <section class="features-section get-personal-loan">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="img-area">
+                            <img src="/static/assets/images/get-personal-loan.png" alt="image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="top-section">
+                            <div class="section-text">
+                                <h5 class="sub-title">Easy access to all your personal needs</h5>
+                                <h2 class="title">Loans, minus the paperwork and haggling.</h2>
+                                <p>We make borrowing uncomplicated by setting clear criteria that you can view beforehand to decide if we fit your needs.</p>
+                                <ul class="list">
+                                    <li class="list-item d-flex align-items-center">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>Competitively priced and tailored for you.</span>
+                                    </li>
+                                    <li class="list-item d-flex align-items-center ">
+                                        <span class="check d-flex align-items-center justify-content-center">
+                                            <img src="/static/assets/images/icon/check.png" alt="icon">
+                                        </span>
+                                        <span>Get an overview on your loans in the app.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                           {%if request.user.is_authenticated %}
+                            <div class="btn-area">
+                                <a href="/loans" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%else%}
+							<div class="btn-area">
+                                <a href="/signup" class="cmn-btn">Apply for a Personal loan</a>
+                            </div>
+							{%endif%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Get personal loan  In end -->
+
+    <!-- Apply for a loan In start -->
+    <section class="apply-for-loan business-loan" id="personal-loan-form">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Quick & easy Education loan</h5>
+                            <h2 class="title">Take One Step Closer to Your Dream.</h2>
+                            <p>Get Education loans approved within days with transparent lending criteria and transparent processes.</p>
+                        </div>
+                    </div>
+                </div>
+               
+				
+				
+            </div>
+        </div>
+    </section>
+    <!-- Apply for a loan In end -->
+
+
+
+    <!-- Get Start In start -->
+    <section class="get-start wow fadeInUp">
+        <div class="overlay">
+            <div class="container">
+                <div class="col-12">
+                    <div class="get-content">
+                        <div class="section-text">
+                            <h3 class="title">Ready to get started?</h3>
+                            <p>It only takes a few minutes to register your FREE horizonheritage account.</p>
+                        </div>
+                        <a href="/signup" class="cmn-btn">Open an Account</a>
+                        <img src="/static/assets/images/get-start.png" alt="images">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Get Start In end -->
+
+    <!-- Footer Area Start -->
+  
+</body>
+
+{% endblock content %}

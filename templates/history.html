@@ -1,0 +1,62 @@
+
+{% extends 'base2.html' %}
+{% load static %}
+{% block main %}
+    <body class="nk-body npc-crypto bg-white has-sidebar dark-mode ">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <!-- sidebar @s -->
+                {% include 'side.html' %}
+                <!-- sidebar @e -->
+                <!-- wrap @s -->
+                <div class="nk-wrap ">
+                    <!-- main header @s -->
+                    {% include 'main.html' %}
+                   
+                    <!-- main header @e --><div class="nk-content">
+            <iframe             src="//www.exchangerates.org.uk/widget/ER-LRTICKER.php?w=1400&amp;s=1&amp;mc=GBP&amp;mbg=F0F0F0&amp;bs=yes&amp;bc=000044&amp;f=verdana&amp;fs=10px&amp;fc=000044&amp;lc=000044&amp;lhc=FE9A00&amp;vc=FE9A00&amp;vcu=008000&amp;vcd=FF0000&amp;"             height="30" width="100%" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"></iframe> <div class="card card-preview ">
+                  <div class="card-inner p-0">
+                    <table class="datatable-init table">
+                      <thead>
+                        <tr>
+                        <th>Ref </th>
+                         <th>Type</th>
+                        <!--    <th>Scope</th>   -->
+                          <th>Amount</th>
+                          <th>Date </th>
+                        <!--  <th>Description</th> -->
+                          <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+					{% for transaction in transaction_history %}
+					<tr>
+						<td>{{ transaction.id }}</td>
+						<td>{{ transaction.transaction_type }}</td>
+					
+						<td><b>USD</b> {{ transaction.amount }}</td>
+						<td>{{ transaction.timestamp }}</td>
+			<!-- 			<td>{{ transaction.description }}</td>  -->
+						<td>{{ transaction.status }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+          </table>
+          </div>
+      </div>
+    </div>
+   
+                    <!-- footer @e -->
+                </div>
+                <!-- wrap @e -->
+            </div>
+            <!-- main @e -->
+        </div>
+        <!-- app-root @e -->
+        <!-- JavaScript -->
+       
+       
+    </body>
+    
+ {% endblock main %}

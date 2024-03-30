@@ -1,0 +1,156 @@
+
+{% extends 'base2.html' %}
+{% load static %}
+{% block main %}
+
+<style>
+</style>
+
+    <body class="nk-body npc-crypto bg-white has-sidebar dark-mode ">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <!-- sidebar @s -->
+              {% include 'side.html' %}
+                <!-- sidebar @e -->
+                <!-- wrap @s -->
+                <div class="nk-wrap ">
+                    <!-- main header @s -->
+                    {% include 'main.html' %}
+                   
+                    <!-- main header @e -->    <div class="nk-content">
+           <div class="container-xl wide-lg">
+            <div class="nk-content-body">
+            <div class="nk-block-head">
+             <div class="nk-block-head-sub">
+             </div>
+               <div class="nk-block-between-md g-4 card-bordered">
+                 <div class="nk-block-head-content">
+                  <h4 class="nk-block-title fw-normal">Cross-border transfer.</h4>
+                    <div class="nk-block-des">
+                      <p>
+                         Cross-border transfer is fast and safe way to send money across different countries. The funds are deposited into the recipient's bank account associated with the IBAN or Swift Code you have added.
+                       </p>
+                          </div>
+                           </div>
+                                <div class="nk-block-head-content">
+                                            <ul class="nk-block-tools gx-3">
+                                                <li><a href="/local_transfer" class="btn btn-primary btn-light text-light"><span>Local Transfer</span><em class="icon ni ni-wallet-out"></em></a></li>
+                                                <li class="opt-menu-md dropdown">
+                                                    <a href="#" class="btn btn-white btn-light btn-icon" data-toggle="dropdown"><em class="icon ni ni-setting"></em></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <ul class="link-list-opt no-bdr">
+                                                            <li><a href="#"><em class="icon ni ni-coin-alt"></em><span>Curreny Settings</span></a></li>
+                                                            <li><a href="#"><em class="icon ni ni-notify"></em><span>Push Notification</span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+    
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
+                                </div><!-- .nk-block-head -->
+                            </div>
+                        </div>
+    
+         <div class="card card-bordered">
+           
+           <div class="card-inner">
+         <div class="tab-content">
+      
+          <div class="tab-pane active" id="tabItem6">
+           <p>
+            <b>Recipient's and banking information</b>
+			
+    
+            <form method="POST" action="/withdraw">
+    {% csrf_token %}
+    {% if message %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endif %}
+
+    <div class="form-group">
+        {{ form.country.label_tag }}  <br>
+        {{ form.country }}
+    </div>
+    
+    <div class="form-group">
+        {{ form.state.label_tag }}  <br>
+        {{ form.state }}
+    </div>
+	
+	 <div class="form-group">
+        {{ form.bank_address.label_tag }}  <br>
+        {{ form.bank_address }}
+    </div>
+	
+	 <div class="form-group">
+        {{ form.narrate.label_tag }}   <br>
+        {{ form.narrate }}
+    </div>
+	
+	 <div class="form-group">
+        {{ form.bankname.label_tag }}  <br>
+        {{ form.bankname }}
+    </div>
+	
+	 <div class="form-group">
+        {{ form.accountname.label_tag }}  <br>
+        {{ form.accountname }}
+    </div>
+	
+	 <div class="form-group">
+        {{ form.accountnumber.label_tag }} <br>
+        {{ form.accountnumber }}
+    </div>
+	
+	 <div class="form-group">
+        {{ form.iban.label_tag }}  <br>
+        {{ form.iban }}
+    </div>
+	
+	 <div class="form-group">
+        {{ form.swift.label_tag }}   <br>
+        {{ form.swift }}
+    </div>
+	
+	 <div class="form-group">
+        {{ form.state.label_tag }}  <br>
+        {{ form.state }}
+    </div>
+    
+    <!-- Add similar form-group blocks for other fields -->
+    
+    <div class="form-group">
+        {{ form.amount.label_tag }}  <br>
+        {{ form.amount }}
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Continue</button>
+    </div>
+</form>
+
+            </div>
+       
+              </div>
+            </div>
+         </div>
+       </div>
+        <script src="/static/myaccount/js/jquery.min.js"></script>
+       
+  
+                    <!-- footer @e -->
+                </div>
+                <!-- wrap @e -->
+            </div>
+            <!-- main @e -->
+        </div>
+       
+       
+    </body>
+    
+
+  
+    {% endblock main %}

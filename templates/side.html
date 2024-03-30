@@ -1,0 +1,200 @@
+
+<div class="nk-sidebar nk-sidebar-fixed " data-content="sidebarMenu">
+    <div class="nk-sidebar-element nk-sidebar-head"  style="border-bottom: solid #fe473a;">
+        <div class="nk-sidebar-brand" >
+            <a href="/" class="logo-link nk-sidebar-logo">
+                <img class="logo-light logo-img logo-img-lg" src="/static/logo.png" alt="logo">
+                            <img class="logo-dark logo-img logo-img-lg" src="/static/logo.png" alt="logo-dark">
+                
+            </a>
+        </div>
+        <div class="nk-menu-trigger mr-n2">
+            <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
+        </div>
+    </div><!-- .nk-sidebar-element -->
+    <div class="nk-sidebar-element">
+        <div class="nk-sidebar-body" data-simplebar>
+            <div class="nk-sidebar-content">
+                <div class="nk-sidebar-widget d-none d-xl-block">
+                 <!--   <div class="user-account-info between-center">
+					
+                        <div class="user-account-main">
+                            <h6 class="overline-title-alt">Available Balance</h6>
+                            <div class="user-balance">{{ user.avaliablebalance }}<small class="currency currency-btc">pair</small></div>
+                            <div class="user-balance-alt">userbalnace<span class="currency currency-btc">pair</span></div>
+                        </div>
+					
+                        <a href="#" class="btn btn-white btn-icon btn-light"><em class="icon ni ni-line-chart"></em></a>
+                    </div> -->
+                    <ul class="user-account-data gy-1">
+                        <li>
+                            <div class="user-account-label">
+                                <span class="sub-text">Income</span>
+                            </div>
+                            <div class="user-account-value">
+
+                                <span class="text-success ml-2">85 %<em class="icon ni ni-arrow-long-up"></em></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-account-label">
+                                <span class="sub-text">Debits</span>
+                            </div>
+                            <div class="user-account-value">
+                               <span class="text-danger ml-2">45 %<em class="icon ni ni-arrow-long-down"></em></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="user-account-actions">
+                        <ul class="g-3">
+                            <li><a href="/local_transfer" class="btn btn-lg btn-primary"><span> Transfer</span></a></li>
+                            <li><a href="/local_transfer" class="btn btn-lg btn-secondary"><span>Pay Bills</span></a></li>
+                        </ul>
+                    </div>
+                </div><!-- .nk-sidebar-widget -->
+                <div class="nk-sidebar-widget nk-sidebar-widget-full d-xl-none pt-0">
+                    <a class="nk-profile-toggle toggle-expand" data-target="sidebarProfile" href="#">
+                        <div class="user-card-wrap">
+                            <div class="user-card">
+                                <div class="user-avatar">
+                                    <span>BD</span>
+                                </div>
+                                <div class="user-info">
+                                    <span class="lead-text">{{user.username}}</span>
+                                    <span class="sub-text">{{user.accountnumber}}</span>
+                                </div>
+                                <div class="user-action">
+                                    <em class="icon ni ni-chevron-down"></em>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="nk-profile-content toggle-expand-content" data-content="sidebarProfile">
+                       
+					   
+					   
+					   
+					   
+					   
+					   
+                        <ul class="user-account-data">
+                            <li>
+                                <div class="user-account-label">
+                                    <span class="sub-text">income</span>
+                                </div>
+                                <div class="user-account-value">
+                                
+                                    <span class="text-success ml-2">85 %<em class="icon ni ni-arrow-long-up"></em></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="user-account-label">
+                                    <span class="sub-text">Debits</span>
+                                </div>
+                                <div class="user-account-value">
+                                   
+                                    <span class="text-danger ml-2">45 %<em class="icon ni ni-arrow-long-up"></em></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="user-account-links">
+                            <li><a href="/local_transfer" class="link"><span> Transfer Funds</span> <em class="icon ni ni-wallet-out"></em></a></li>
+                            <li><a href="/local_transfer" class="link"><span>Pay Bills</span> <em class="icon ni ni-wallet-in"></em></a></li>
+                        </ul>
+                       
+                        <ul class="link-list">
+                            <li><a href="/logout"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                        </ul>
+                    </div>
+                </div><!-- .nk-sidebar-widget -->
+                <div class="nk-sidebar-menu">
+                    <!-- Menu -->
+                    <ul class="nk-menu">
+                        <li class="nk-menu-heading">
+                            <h6 class="overline-title">Menu</h6>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="/dashboard" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
+                                <span class="nk-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="/dashboard" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-user-c"></em></span>
+                                <span class="nk-menu-text">My Account</span>
+                            </a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="/history" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-report-profit"></em></span>
+                                <span class="nk-menu-text">Account summary</span>
+                            </a>
+                        </li>
+                          <li class="nk-menu-item has-sub">
+                            <a href="/local_transfer" class="nk-menu-link nk-menu-toggle">
+                                <span class="nk-menu-icon"><em class="icon ni ni-wallet-out"></em></span>
+                                <span class="nk-menu-text">Send Money</span>
+                            </a>
+                            <ul class="nk-menu-sub">
+                                <li class="nk-menu-item">
+                                    <a href="/local_transfer" class="nk-menu-link"><span class="nk-menu-text">Scbank Transfer</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="/withdraw" class="nk-menu-link"><span class="nk-menu-text">Other bank transfer</span></a>
+                                </li>
+                               
+                            </ul><!-- .nk-menu-sub -->
+                        </li><!-- .nk-menu-item -->
+                           <li class="nk-menu-item">
+                            <a href="/withdraw" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-money"></em></span>
+                                <span class="nk-menu-text">Cross-border Transfer</span>
+                            </a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="/deposit" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-wallet-in"></em></span>
+                                <span class="nk-menu-text">Deposit Check</span>
+                            </a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="local_transfer" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-cc-secure"></em></span>
+                                <span class="nk-menu-text">Pay Bills</span>
+                            </a>
+                        </li>
+                                                             <li class="nk-menu-item">
+                            <a href="/cards" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
+                                <span class="nk-menu-text">Virtual Cards</span>
+                            </a>
+                        </li>
+                              
+                                                         <li class="nk-menu-item">
+                            <a href="/kyc" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-file-check-fill"></em></span>
+                                <span class="nk-menu-text">KYC Status</span>
+                            </a>
+                        </li>
+                                                                                                  <li class="nk-menu-item">
+                            <a href="/loans" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-invest"></em></span>
+                                <span class="nk-menu-text">Loan/Credit financing </span>
+                            </a>
+                        </li>
+                           
+                    </ul><!-- .nk-menu -->
+                </div><!-- .nk-sidebar-menu -->
+              
+                <div class="nk-sidebar-footer">
+                    <ul class="nk-menu nk-menu-footer">
+                       
+                <a href="#" style=""><div id="google_translate_element"></div> </a>
+                      
+                    </ul><!-- .nk-footer-menu -->
+                </div><!-- .nk-sidebar-footer -->
+            </div><!-- .nk-sidebar-content -->
+        </div><!-- .nk-sidebar-body -->
+    </div><!-- .nk-sidebar-element -->
+</div>

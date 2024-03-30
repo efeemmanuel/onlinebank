@@ -1,0 +1,357 @@
+
+{% extends 'base2.html' %}
+{% load static %}
+{% block main %}
+    <body class="nk-body npc-crypto bg-white has-sidebar dark-mode ">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <!-- sidebar @s -->
+              {% include 'side.html' %}
+                <!-- sidebar @e -->
+                <!-- wrap @s -->
+                <div class="nk-wrap ">
+                    <!-- main header @s -->
+                 {% include 'main.html' %}
+                   
+                    <!-- main header @e -->
+     <!-- content @s -->
+                    <div class="nk-content nk-content-fluid">
+                        <div class="container-xl wide-lg">
+                            <div class="nk-content-body">
+                                <div class="kyc-app wide-sm m-auto">
+                                    <div class="nk-block-head nk-block-head-lg wide-xs mx-auto">
+                                        <div class="nk-block-head-content text-center">
+                                            <h2 class="nk-block-title fw-normal">Begin your ID-Verification</h2>
+                                            <div class="nk-block-des">
+                                                <p>To comply with regulation each participant will have to go through indentity verification (KYC/AML) to prevent fraud causes. </p>
+                                            </div>
+                                        </div>
+                                    </div><!-- nk-block-head -->
+                                    <div class="nk-block">
+                                        <div class="card card-bordered">
+                                            <div class="nk-kycfm">
+                                                <div class="nk-kycfm-head">
+                                                    <div class="nk-kycfm-count">01</div>
+                                                    <div class="nk-kycfm-title">
+                                                        <h5 class="title">Personal Details</h5>
+                                                        <p class="sub-title">Your simple personal information required for identification</p>
+                                                    </div>
+                                                </div><!-- .nk-kycfm-head -->
+                                                <div class="nk-kycfm-content">
+                                                    <div class="nk-kycfm-note">
+                                                        <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="Tooltip on right"></em>
+                                                        <p>Please type carefully and fill out the form with your personal details.</p>
+                                                    </div>
+                                                    <form  method="post" id="kycForm" action="kyc"  enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        {% if messages %}
+									<!-- <ul> -->
+										{% for message in messages %}
+										<div class="alert alert-warning alert-dismissible fade show" role="alert">
+									<strong>{{ message }}</strong>
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									</div>
+										  
+										{% endfor %}
+									<!-- </ul> -->
+									  {% endif %}
+                                                    <div class="row g-4">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">First Name <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" class="form-control form-control-lg" name="first_name" id="first_name" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" class="form-control form-control-lg" name="last_name" id="last_name"  required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">Email Address <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="email" name="email" id="email"   class="form-control form-control-lg" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="tel" name="phone" id="phone"  class="form-control form-control-lg" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">Date of Birth <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="dob" name="dob"  class="form-control form-control-lg date-picker" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">SSN <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="accountnumber" name="ssn"  class="form-control form-control-lg" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                    </div><!-- .row -->
+                                                </div><!-- .nk-kycfm-content -->
+                                                <div class="nk-kycfm-head">
+                                                    <div class="nk-kycfm-count">02</div>
+                                                    <div class="nk-kycfm-title">
+                                                        <h5 class="title">Your Address</h5>
+                                                        <p class="sub-title">Your address information required for identification</p>
+                                                    </div>
+                                                </div><!-- .nk-kycfm-head -->
+                                                <div class="nk-kycfm-content">
+                                                    <div class="nk-kycfm-note">
+                                                        <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="Tooltip on right"></em>
+                                                     
+                                                    </div>
+                                                    <div class="row g-4">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">Address Line 1 <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" class="form-control form-control-lg" id="address1" name="address1" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">Address Line 2</label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="address2" name="address2" class="form-control form-control-lg">
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">City <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" name="city" id="city"  class="form-control form-control-lg" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">State <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="state" name="state"  class="form-control form-control-lg" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">Nationality <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="nationality" name="nationality"  class="form-control form-control-lg date-picker-alt" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-label-group">
+                                                                    <label class="form-label">Zip Code <span class="text-danger">*</span></label>
+                                                                </div>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" name="zipcode" id="zipcode"  class="form-control form-control-lg" required>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- .col -->
+                                                    </div><!-- .row -->
+                                                </div><!-- .nk-kycfm-content -->
+                                                <div class="nk-kycfm-head">
+                                                    <div class="nk-kycfm-count">03</div>
+                                                    <div class="nk-kycfm-title">
+                                                        <h5 class="title">Document Upload</h5>
+                                                        <p class="sub-title">To verify your identity, please upload any of your document.</p>
+                                                    </div>
+                                                </div><!-- .nk-kycfm-head -->
+                                                <div class="nk-kycfm-content">
+                                                    <div class="nk-kycfm-note">
+                                                        <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="Tooltip on right"></em>
+                                                        <p>In order to complete, please upload any of the following personal document.</p>
+                                                    </div>
+                                                    <ul class="nk-kycfm-control-list g-3">
+                                                        <li class="nk-kycfm-control-item">
+                                                            <input class="nk-kycfm-control" type="radio" name="id_type" value="passport" id="passport" data-title="Passport" checked required>
+                                                            <label class="nk-kycfm-label" for="passport">
+                                                               
+                                                                <span class="nk-kycfm-label-text">Passport</span>
+                                                            </label>
+                                                        </li><!-- .nk-kycfm-control-item -->
+                                                        <li class="nk-kycfm-control-item">
+                                                            <input class="nk-kycfm-control" type="radio" value="national-id" name="id_type" id="national-id" data-title="National ID" required>
+                                                            <label class="nk-kycfm-label" for="national-id">
+                                                               
+                                                                <span class="nk-kycfm-label-text">National ID</span>
+                                                            </label>
+                                                        </li><!-- .nk-kycfm-control-item -->
+                                                        <li class="nk-kycfm-control-item">
+                                                            <input class="nk-kycfm-control" type="radio" value="driver-licence" name="id_type" id="driver-licence" data-title="Driving License" required>
+                                                            <label class="nk-kycfm-label" for="driver-licence">
+                                                                
+                                                                <span class="nk-kycfm-label-text">Driving License</span>
+                                                            </label>
+                                                        </li><!-- .nk-kycfm-control-item -->
+                                                    </ul><!-- .nk-kycfm-control-list -->
+                                                    <h6 class="title">To avoid delays when verifying account, Please make sure bellow:</h6>
+                                                    <ul class="list list-sm list-checked">
+                                                        <li>Chosen credential must not be expired.</li>
+                                                        <li>Document should be in good condition and clearly visible.</li>
+                                                        <li>Make sure that there is no light glare on the card.</li>
+                                                    </ul>
+    
+                                                    <div class="nk-kycfm-upload">
+                                                        <h6 class="title nk-kycfm-upload-title">Upload Here</h6>
+                                                        <div class="row">
+                                                   <div class="form-group col-md-6">
+                                                    <label class="form-label" for="customFileLabel">Front</label>
+                                                      <div class="col-md-12 p-0">
+                                                     <img class="img-responsive" id="output_imageB" src="../images/id-front.png" style="width:100%; height:130px">
+                                                     </div>
+                                                     <p class="clear-fix"></p>
+                                                 <div class="form-control-wrap">
+                                                <div class="custom-file">
+                                                    <input type="file" name="image1" class="custom-file-input" id="fileTag" accept="image/*" onchange="preview_imageB(event)" required>
+                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label" for="customFileLabel">Back</label>
+                                                        <div class="col-md-12 p-0">
+                                                        <img class="img-responsive" id="output_image" src="../images/id-back.png" style="width:100%; height:130px">
+                                                       </div>
+                                                       <p class="clear-fix"></p>
+                                                        <div class="form-control-wrap">
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" name="image2" accept="image/*" onchange="preview_image(event)" required>
+                                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div><!-- nk-kycfm-upload -->
+                                                </div><!-- .nk-kycfm-content -->
+                                                <div id="kycResult"></div>
+                                                <div class="nk-kycfm-footer">
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-control-xs custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="tc-agree" required>
+                                                            <label class="custom-control-label" for="tc-agree">I Have Read The <a href="privacy">Terms Of Condition</a> And <a href="privacy">Privacy Policy</a></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-control-xs custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="info-assure" required>
+                                                            <label class="custom-control-label" for="info-assure">All The Personal Information I Have Entered Is Correct.</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nk-kycfm-action pt-2">
+                                                        <button type="submit" class="btn btn-lg btn-primary" id="btn">Submit</button>
+                                                    </div>
+                                                </div><!-- .nk-kycfm-footer -->
+                                            </div>
+                                        </form>
+                                        </div><!-- .card -->
+                                    </div><!-- nk-block -->
+                                </div><!-- kyc-app -->
+                            </div>
+                        </div>
+                    </div>
+            <script src="../js/jquery.min.js"></script>
+             <script type="text/javascript">
+                $(document).ready(function (e) {
+                $("#kycForm").on('submit',(function(e) {
+                document.getElementById("btn").disabled = true;	
+                e.preventDefault();
+                $.ajax({
+                url: "../scripts/auth?action=kycApply",
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data)
+                {
+                document.getElementById("btn").disabled = false;	
+                $("#kycResult").html(data);
+                },
+                  error: function() 
+                {
+                } 	        
+           });
+        }));
+    });
+    </script>
+    <script type='text/javascript'>
+    function preview_image(event) 
+    {
+     var reader = new FileReader();
+     reader.onload = function()
+     {
+      var output = document.getElementById('output_image');
+      output.src = reader.result;
+     }
+     reader.readAsDataURL(event.target.files[0]);
+    }
+    function preview_imageB(event) 
+    {
+     var reader = new FileReader();
+     reader.onload = function()
+     {
+      var output = document.getElementById('output_imageB');
+      output.src = reader.result;
+     }
+     reader.readAsDataURL(event.target.files[0]);
+    }
+    </script>
+   
+                    <!-- footer @e -->
+                </div>
+                <!-- wrap @e -->
+            </div>
+            <!-- main @e -->
+        </div>
+        <!-- app-root @e -->
+        <!-- JavaScript -->
+      
+       
+    </body>
+{% endblock main %}

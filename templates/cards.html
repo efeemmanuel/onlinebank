@@ -1,0 +1,193 @@
+
+{% extends 'base2.html' %}
+{% load static %}
+{% block main %}
+    <body class="nk-body npc-crypto bg-white has-sidebar dark-mode ">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <!-- sidebar @s -->
+              {% include 'side.html' %}
+                <!-- sidebar @e -->
+                <!-- wrap @s -->
+                <div class="nk-wrap ">
+                    <!-- main header @s -->
+                  {% include 'main.html' %}
+                   
+                    <!-- main header @e --> <!-- content @s -->
+                    <div class="nk-content nk-content-fluid">
+                        <div class="container-xl wide-lg">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head">
+                                    <div class="nk-block-head-sub"><span>Virtual Card</span> </div>
+                                    <div class="nk-block-between-md g-4">
+                                        <div class="nk-block-head-content">
+                                            <h2 class="nk-block-title fw-normal">Virtual Card Magement</h2>
+                                            <div class="nk-block-des">
+                                                <p>A fall back option for customers who have forgotten or lost their Card, but need to perform urgent online purchase.</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- .nk-block-between -->
+                                </div><!-- .nk-block-head -->
+                                <div class="nk-block">
+                                    <div class="nk-block-head-sm">
+                                        <div class="nk-block-head-content">
+                                            <h5 class="nk-block-title title">Available cards</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row g-gs">
+                                                                             
+                                        <div class="col-sm-12 col-lg-6 col-xl-6 col-xxl-6">
+                                            <div class="card card-bordered is-dark">
+                                                <div class="nk-wgw">
+                                                    <div class="nk-wgw-inner">
+                                                        <a class="nk-wgw-name" href="#">
+                                                            <div class="nk-wgw-icon ">
+                                                              <em class="icon ni ni-visa-alt h3 text-primary"></em>  
+                                                            </div>
+                                                            <h5 class="nk-wgw-title title">VISA</h5>
+                                                        </a>
+                                                        <div class="nk-wgw-balance">
+                                                            <div class="amount">4902 1731 0373 2567</div>
+                                                            <div class="tranx-date">VALID THRU <span class="text-white">05/26</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="text-center">CCV:<span class="text-white">644</span></div>
+                                                            <span class="text-white text-center">BRYTE SHINE DAVID</span>
+                                                            <div class="tranx-date">Bal:<span class="currency currency-usd">0.00 USD</span></div>
+    
+                                                        </div>
+                                                    </div>
+                                                    <div class="nk-wgw-actions">
+                                                        <ul>
+                                                           <li><a href="#"><em class="icon ni ni-check-circle-fill text-danger"></em> <span>Inactive</span></a></li>
+                                                  <li><a href="#" data-toggle='modal' data-target='#addFund17'><em class="icon ni ni-plus"></em><span>Add Fund</span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="nk-wgw-more dropdown">
+                                                        <a href="#"><em class="icon ni ni-visa h1 text-white"></em></a>
+                                                    </div>
+                                                </div>
+                                            </div><!-- .card -->
+                                        </div><!-- .col -->
+      <!--- Add Fund to Card------->
+     <div class="modal fade" tabindex="-1" id="addFund17" >
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-body modal-body-lg">
+                        <div class="nk-block-head nk-block-head-xs text-center">
+                            <em class="icon ni ni-visa h1 text-primary"></em>                        <h5 class="nk-block-title">Fund Virtual Card*</h5>
+                            <div class="nk-block-text">
+                        </div>
+                        <div class="nk-block">
+                            <div class="buysell-field form-group">
+                                <div class="form-label-group">
+                                    <label class="form-label">Choose payment account</label>
+                                </div>
+                                   <input type="hidden" value="btc" name="bs-currency" id="buysell-choose-currency-modal">
+                                <div class="dropdown buysell-cc-dropdown">
+                                    <a href="#" class="buysell-cc-choosen dropdown-indicator" data-toggle="dropdown">
+                                        <div class="coin-item coin-btc">
+                                            <div class="coin-icon">
+                                                <em class="icon ni ni-wallet-out"></em>
+                                            </div>
+                                            <div class="coin-info">
+                                                <span class="coin-name">Savings Account</span>
+                                                <span class="coin-text">Balance(USD2201610.34)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <div class="dropdown-menu dropdown-menu-auto dropdown-menu-mxh">
+                                        <ul class="buysell-cc-list">
+                                            <li class="buysell-cc-item selected">
+                                                <a href="#" class="buysell-cc-opt" data-currency="btc">
+                                                    <div class="coin-item coin-btc">
+                                                        <div class="coin-icon">
+                                                            <em class="icon ni ni-wallet-out"></em>
+                                                        </div>
+                                                        <div class="coin-info">
+                                                            <span class="coin-name">Savings Account</span>
+                                                            <span class="coin-text">0987*****</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li> <!-- .buysell-cc-item -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="" method="post">
+                             <div class="buysell-field form-group">
+                                <div class="form-label-group">
+                                  <label class="form-label" for="buysell-amount">Amount</label>
+                                    </div>
+                                      <div class="form-control-group">
+                                        <input type="number" step="any" class="form-control form-control form-control-number" max="150000" name="amount17" id="amount17" placeholder="200.00" required>
+                                              <div class="form-dropdown">
+                                                   <div class="text">USD</div>  
+                                               </div>
+                                           </div>
+                                                <div class="form-note-group">
+                                                    <span class="buysell-rate form-note-alt">Maximum Daily Limit:150,000 USD</span>
+                                                </div>
+                                            </div><!-- .buysell-field -->
+       
+                              <div class="form-group">
+                                 <div class="form-label-group">
+                                    <label class="form-label">What is your pet name? <span class="text-danger">*</span></label>
+                                  </div>
+                                  <div class="form-control-group">
+                                    <input type="password" name="answer17" id="answer17" placeholder="Enter answer"  required class="form-control form-control-lg">
+                                </div>
+                             </div>
+                             <div class="addFundResult17"></div>
+                             <hr>
+                             <div class="form-control-group">
+                                 <button class="btn btn-primary addFundBtn17 btn-block"id="btn17" type="submit">Add Fund</button>
+                                <div class="pt-3">
+                                    <a href="#" data-dismiss="modal" class="btn btn-sm btn-danger">Cancel</a>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              </div>
+             </div>
+                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+        <script type="text/javascript">
+         $(document).ready(function () {
+        $('.addFundBtn17').click(function (e) {
+          e.preventDefault();
+          document.getElementById("btn17").disabled = true;	
+          var amount17 = $('#amount17').val();
+          var answer17 = $('#answer17').val();
+           $.ajax
+            ({
+              type: "POST",
+              url: "../scripts/auth?action=addFund&cardid=17",
+              data: {"amount17": amount17, "answer17": answer17, },
+              success: function (data) {
+                  document.getElementById("btn17").disabled = false;
+                $('.addFundResult17').html(data);
+              }
+            });
+        });
+      });
+        </script>
+                                                                    </div><!-- .row -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+     
+                    <!-- footer @e -->
+                </div>
+                <!-- wrap @e -->
+            </div>
+            <!-- main @e -->
+        </div>
+        <!-- app-root @e -->
+        <!-- JavaScript -->
+       
+    </body>
+{% endblock main %}
